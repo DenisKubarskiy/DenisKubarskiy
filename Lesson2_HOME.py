@@ -139,3 +139,12 @@
 # if x==5:
 #     count = count + 1
 # print('Количество цифр 5 в числе ',y,': ',count)
+
+number = int(input("введите цифру "))
+digits_numbar = int(input("что ищем"))
+count = 0
+while number>0:
+ if number%10 == digits_numbar:
+    count += 1
+ number=number//10
+print(count)
