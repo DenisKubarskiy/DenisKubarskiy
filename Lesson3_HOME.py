@@ -7,16 +7,8 @@ f.close()
 # print(type(text),text)
 
 # 1. Методами строк очистить текст от знаков препинания
-text = text.replace(',', '')
-text = text.replace('?', '')
-text = text.replace('!', '')
-text = text.replace('—', '')
-text = text.replace(';', '')
-text = text.replace('.', '')
-text = text.replace('«', '')
-text = text.replace('»', '')
-text = text.replace('\r', ' ')
-text = text.replace('\f', ' ')
-text = text.replace('\t', ' ')
-# text = text.replace('\n', ' ')
+
+znaki=',?!—;:".«»()\r\t'
+for i in range(len(znaki)):
+      text=text.replace(znaki[i],'')
 print(text)
