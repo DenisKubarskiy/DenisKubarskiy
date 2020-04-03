@@ -26,9 +26,11 @@ print(L_wordlist)
 
 # 4 Получить из list пункта 3 dict, ключами которого являются слова, а значениями их количество появлений в тексте
 
-Dic_text={}
-for i in range(len(L_wordlist)):
-      Dic_text=Dic_text.fromkeys=(L_wordlist[i],0)
-print(Dic_text.keys())
+Dic_text={}.fromkeys(L_wordlist,0)
+for i in L_wordlist:
+      Dic_text[i]+=1
+print(Dic_text)
 
+# 5 вывести 5 наиболее часто встречающихся слов (sort)
+#   вывести количество разных слов в тексте (set)
 
