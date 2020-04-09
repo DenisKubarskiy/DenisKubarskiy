@@ -8,11 +8,13 @@ import random
 # max=reduce(lambda x,y: x if x>y else y, sample)
 # print(summ, max)
 
-# 1. Напишите функцию (F): на вход список имен и целое число N; на выходе список длины N случайных имен из первого списка 
-# (могут повторяться, можно взять значения: количество имен 20, N = 100, рекомендуется использовать функцию random);
+
 
 list1=['Михаил',"Анна", "Елена", 'Светлана', "Константин", "Наталья", 'Лизавета', "Денис", "Дмитрий", "Павел", "Жанна", "Мария", "Владимир", "Петр", "Зоя", "Леонид", "Александр", "Дональд", "Кристина", "Яна" ]
 n1=int(input("Введите нужную длину списка не более 100 "))
+
+# 1. Напишите функцию (F): на вход список имен и целое число N; на выходе список длины N случайных имен из первого списка
+# (могут повторяться, можно взять значения: количество имен 20, N = 100, рекомендуется использовать функцию random);
 
 def name_list_gen(new_list, n):
     new_list1 = []
@@ -20,6 +22,8 @@ def name_list_gen(new_list, n):
         x = random.randint(0, len(new_list)-1)
         new_list1.append(new_list[x])
     return  new_list1
+
+# 2. Напишите функцию вывода самого частого имени из списка на выходе функции F;
 
 def Most_frequent (new_list):
     count_word={}
@@ -30,14 +34,15 @@ def Most_frequent (new_list):
     print(count_word)
     sorted_count_word=dict(sorted(count_word.items(),key=lambda y:y[1], reverse=True))
     print(sorted_count_word)
-    print(type(sorted_count_word), list(sorted_count_word.keys())[0])
+    # print(type(sorted_count_word), list(sorted_count_word.keys())[0])
     return list(sorted_count_word.keys())[0]
+
+# 3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.
 
 def Most_freq_Letter (new_list):
     first_letters_list=[]
     for i in new_list:
         word_list=list(tuple(i))
-        # print(type(word_list),word_list)
         first_letters_list.append(word_list[0])
     print(first_letters_list, end=' ')
     count_Letter={}
@@ -46,8 +51,9 @@ def Most_freq_Letter (new_list):
     for w in first_letters_list:
         count_Letter[w]+=1
     sorted_letters=dict(sorted(count_Letter.items(),key=lambda y:y[1]))
-    print(sorted_letters)
-    print(list(sorted_letters.keys())[0])
+    print()
+    print(count_Letter)
+    # print(list(sorted_letters.keys())[0])
     return list(sorted_letters.keys())[0]
 
 
@@ -59,9 +65,6 @@ Most_freq_Letter1=Most_freq_Letter(new_list)
 print('Реже всего имена начинаются на букву  ', Most_freq_Letter1)
 
 
-
-# 2. Напишите функцию вывода самого частого имени из списка на выходе функции F;
-# 3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена в списке на выходе функции F.
 
 
 
