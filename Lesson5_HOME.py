@@ -35,7 +35,6 @@ def biggest_simple_delitel (n):
                 print('Число ', i, '- наибольший простой делитель числа ', n)
                 break
     if i==1: print('Число ', n, ' простое, поэтому его делители только 1 и само число')
-
 # m=int(input('Введите число '))
 # biggest_simple_delitel(m)
 
@@ -45,7 +44,46 @@ def biggest_delitel (n):
             print('Число ', i, '- наибольший делитель числа ', n)
             break
     if i==1: print('Число ', n, ' простое, поэтому его делители только 1 и само число')
+# m=int(input('Введите число '))
+# biggest_delitel(m)
 
-m=int(input('Введите число '))
-biggest_delitel(m)
-
+n=int(input('Введите число от 1 до 1000 '))
+deliteli=[]
+print("Каноническое разложение числа ", n, "= ",end='')
+k=0
+while n!=1:
+    for i in range(2, n+1):
+        if n % i == 0:
+            deliteli.append(i)
+            k+=1
+            if n / i==1:
+                if k==1:
+                    print(n,' (Число ', n, ' простое, поэтому его делители только 1 и само число)')
+                else: print(i, end=' ')
+            else:print(i, end='*')
+            break
+    n=int(n/i)
+print()
+deliteli_1 = {}
+for w in deliteli:
+    deliteli_1[w] = 0
+for w in deliteli:
+    deliteli_1[w] += 1
+k1=0
+for w in deliteli:
+    if deliteli_1[w] > 1:
+        k1+=1
+k3=len(deliteli_1)
+if k1>0:
+    print('или ', end=" ")
+    k2=0
+    for key in deliteli_1:
+        if k2<k3-1:
+            if deliteli_1[key]==1:
+                print(key,"*",end=" ")
+            else: print(key,"^",deliteli_1[key], "*",end=" ")
+        else:
+            if deliteli_1[key]==1:
+                print(key)
+            else: print(key,"^",deliteli_1[key],end=" ")
+        k2 += 1
